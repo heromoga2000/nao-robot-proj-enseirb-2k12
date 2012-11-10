@@ -66,5 +66,15 @@ class Manager:
         for name in self.associations:
             tmp += (str)(self.associations[name])+';'
         myFile.write(tmp+'\n')
+    
+    def createArray( self ):
+        arr = {}
+        for name in self.associations:
+            arr[name] = [0]
+        return arr
+    def exportArray(self, arr):
+        for name in self.associations:
+            arr[name].append( self.associations[name] )
+        return arr
         
 
