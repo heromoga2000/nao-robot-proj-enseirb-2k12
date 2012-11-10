@@ -1,8 +1,9 @@
 import Classes 
-
+import Paint
 
 
 def acquisition_extinction():
+    tab = {}
     manager = Classes.Manager()
     manager.addSI("food", 1)
     manager.addSI("goOut", 0.8)
@@ -16,13 +17,18 @@ def acquisition_extinction():
     
     manager.exportCSVHeader( myFile )
     manager.exportCSV(myFile)
+    tab = manager.createArray()
     
     for i in range(10):
         manager.trial(["light", "sound"], "food", 0)
         manager.exportCSV(myFile)
+        tab = manager.exportArray(tab)
+    
     for i in range(10):
         manager.trial(["light", "sound"], [], 0)
         manager.exportCSV(myFile)
+        tab = manager.exportArray(tab)
+    Paint.tst(tab)
 
     myFile.close()
 
@@ -48,3 +54,4 @@ def masquage():
 
 
 acquisition_extinction()
+
