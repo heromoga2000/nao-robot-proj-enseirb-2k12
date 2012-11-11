@@ -28,7 +28,7 @@ def acquisition_extinction():
         manager.trial(["light", "sound"], [], 0)
         manager.exportCSV(myFile)
         tab = manager.exportArray(tab)
-    Paint.tst(tab)
+    Paint.savePlot(tab, 'graph.png', True)
 
     myFile.close()
 
